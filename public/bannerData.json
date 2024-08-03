@@ -30,7 +30,7 @@
       "id": 4,
       "title": "Back to School",
       "description": "Get ready for school with our special deals",
-      "cta": "Shop Supplies",
+      "cta": "Explore",
       "image": "/images/img4.jpg",
       "background": "/images/bg4.jpg",
       "imgClip": "clip-left-point"
@@ -57,7 +57,7 @@
       "id": 7,
       "title": "New Year Sale",
       "description": "Start the new year with great deals",
-      "cta": "Start Shopping",
+      "cta": "Know More",
       "image": "/images/img7.jpg",
       "background": "/images/bg7.jpeg",
       "imgClip": "clip-bevel"
