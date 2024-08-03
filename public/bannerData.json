@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "title": "Summer Sale",
+      "description": "Get 50% off on all products!",
+      "cta": "Shop Now",
+      "image": "/images/img1.jpg",
+      "background": "/images/bg1.jpeg",
+      "imgClip": "clip-hexagon"
+    },
+    {
+      "id": 2,
+      "title": "Winter Collection",
+      "description": "Discover our new winter collection",
+      "cta": "Explore",
+      "image": "/images/img2.png",
+      "background": "/images/bg2.jpg",
+      "imgClip": "clip-pentagon"
+    },
+    {
+      "id": 3,
+      "title": "Spring Festival",
+      "description": "Celebrate spring with our exclusive offers",
+      "cta": "View Offers",
+      "image": "/images/img3.jpg",
+      "background": "/images/bg3.jpg",
+      "imgClip": "clip-trapezoid"
+    },
+    {
+      "id": 4,
+      "title": "Back to School",
+      "description": "Get ready for school with our special deals",
+      "cta": "Shop Supplies",
+      "image": "/images/img4.jpg",
+      "background": "/images/bg4.jpg",
+      "imgClip": "clip-left-point"
+    },
+    {
+      "id": 5,
+      "title": "Black Friday Deals",
+      "description": "Don't miss our Black Friday discounts",
+      "cta": "Grab Now",
+      "image": "/images/img5.jpg",
+      "background": "/images/bg5.jpeg",
+      "imgClip": "clip-parallelogram"
+    },
+    {
+      "id": 6,
+      "title": "Holiday Specials",
+      "description": "Make your holidays special with our offers",
+      "cta": "Shop Gifts",
+      "image": "/images/img6.jpg",
+      "background": "/images/bg6.jpeg",
+      "imgClip": "clip-heptagon"
+    },
+    {
+      "id": 7,
+      "title": "New Year Sale",
+      "description": "Start the new year with great deals",
+      "cta": "Start Shopping",
+      "image": "/images/img7.jpg",
+      "background": "/images/bg7.jpeg",
+      "imgClip": "clip-bevel"
+    },
+    {
+      "id": 8,
+      "title": "Valentine's Day",
+      "description": "Show your love with our special collection",
+      "cta": "Shop Now",
+      "image": "/images/img8.jpg",
+      "background": "/images/bg8.jpg",
+      "imgClip": "clip-right-chevron"
+    }
+  ]
+  
