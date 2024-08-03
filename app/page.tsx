@@ -63,9 +63,9 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div className="flex flex-col gap-6 items-center pt-4 pb-8">
       <SelectorMenu position={position} setPosition={setPosition} />
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap items-center justify-center gap-4 w-3/5">
         {banners.map((banner) => (
           <BannerImageComp
             key={banner.id}
@@ -78,7 +78,7 @@ export default function Home() {
             position={position}
             onEditClick={() => openEditSheet(banner.id)}
             onDownloadClick={() => downloadImage(banner.id)}
-            bannerRef={(el) => (bannerRefs.current[banner.id] = el)} // Assign ref
+            bannerRef={(el) => (bannerRefs.current[banner.id] = el)}
           />
         ))}
       </div>
@@ -92,6 +92,6 @@ export default function Home() {
           setIsSheetOpen(false);
         }}
       />
-    </>
+    </div>
   );
 }

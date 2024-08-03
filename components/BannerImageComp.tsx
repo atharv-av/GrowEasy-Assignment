@@ -40,7 +40,7 @@ const BannerImageComp: React.FC<BannerProps> = ({
     gap = "gap-4";
   } else if (position === "landscape") {
     width = "w-96";
-    height = "h-48";
+    height = "h-60";
     gap = "gap-8";
   }
 
