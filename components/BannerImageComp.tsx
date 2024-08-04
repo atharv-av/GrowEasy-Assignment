@@ -9,12 +9,13 @@ interface BannerProps {
   description: string;
   cta: string;
   image: string;
-  background: string;
+  background?: string;
   imgClip: string;
-  position: string;
-  onEditClick: () => void;
-  onDownloadClick: () => void;
-  bannerRef: (el: HTMLDivElement | null) => void;
+  position?: string;
+  onEditClick?: () => void;
+  onDownloadClick?: () => void;
+  bannerRef?: (el: HTMLDivElement | null) => void;
+  showEditIcon?: boolean;
 }
 
 const BannerImageComp: React.FC<BannerProps> = ({
@@ -28,6 +29,7 @@ const BannerImageComp: React.FC<BannerProps> = ({
   onEditClick,
   onDownloadClick,
   bannerRef,
+  showEditIcon = true,
 }) => {
   let width, height, gap;
   if (position === "square") {
@@ -71,11 +73,13 @@ const BannerImageComp: React.FC<BannerProps> = ({
         </div>
         <div className="flex flex-col justify-between items-end gap-5 pr-2">
           <div>
-            <Pencil
-              size={25}
-              className="text-white pencil-icon cursor-pointer"
-              onClick={onEditClick}
-            />
+            {showEditIcon && (
+              <Pencil
+                size={25}
+                className="text-white pencil-icon cursor-pointer"
+                onClick={onEditClick}
+              />
+            )}
           </div>
           <Image
             src={image}

@@ -13,9 +13,9 @@
       "title": "Winter Collection",
       "description": "Discover our new winter collection",
       "cta": "Explore",
-      "image": "/images/img2.png",
+      "image": "/images/img2.jpeg",
       "background": "/images/bg2.jpg",
-      "imgClip": "clip-pentagon"
+      "imgClip": "clip-right-point"
     },
     {
       "id": 3,

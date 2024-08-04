@@ -35,7 +35,6 @@ export default function Home() {
       );
 
       try {
-        // Generate the image and download
         const dataUrl = await toPng(ref);
         triggerDownload(dataUrl, `banner-${bannerId}.png`);
       } catch (err) {

@@ -1,0 +1,8 @@
+[
+  { "id": 1, "path": "/images/imgA.jpg" },
+  { "id": 2, "path": "/images/imgB.jpg" },
+  { "id": 3, "path": "/images/imgC.jpg" },
+  { "id": 4, "path": "/images/imgD.jpg" },
+  { "id": 5, "path": "/images/imgE.jpg" },
+  { "id": 6, "path": "/images/imgF.jpg" }
+]
