@@ -33,7 +33,7 @@ const EditBannerTemplateBs: React.FC<EditBannerTemplateBsProps> = ({
 }) => {
   return (
     <Sheet open={isSheetOpen} onOpenChange={(open) => !open && onSheetClose()}>
-      <SheetContent side="bottom" className="lg:w-2/5 md:w-4/5 w-full mx-auto">
+      <SheetContent side="bottom" className="lg:w-2/5 md:w-4/5 w-full mx-auto h-full lg:h-3/4 md:h-1/2 overflow-y-hidden">
         <SheetHeader>
           <h2 className="text-lg font-semibold">Edit Banner</h2>
         </SheetHeader>

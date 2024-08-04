@@ -24,28 +24,64 @@ export default function Home() {
   });
 
   // Create a ref map to track banner refs
-  const bannerRefs = useRef<Record<number, HTMLDivElement | null>>({});
+  const bannerRefs = useRef<Record<number, HTMLDivElement | null>>([]);
 
-  const downloadImage = (bannerId: number) => {
+  // const downloadImage = (bannerId: number) => {
+  //   const ref = bannerRefs.current[bannerId];
+  //   if (ref) {
+  //     ref.classList.add("hide-pencil");
+
+  //     toPng(ref)
+  //       .then((dataUrl) => {
+  //         const link = document.createElement("a");
+  //         link.href = dataUrl;
+  //         link.download = `banner-${bannerId}.png`;
+  //         link.click();
+  //       })
+  //       .catch((err) => {
+  //         console.error("Failed to save image", err);
+  //       })
+  //       .finally(() => {
+  //         ref.classList.remove("hide-pencil");
+  //       });
+  //   }
+  // };
+  
+  const downloadImage = async (bannerId: number) => {
     const ref = bannerRefs.current[bannerId];
+    
     if (ref) {
-      ref.classList.add("hide-pencil");
-
-      toPng(ref)
-        .then((dataUrl) => {
-          const link = document.createElement("a");
-          link.href = dataUrl;
-          link.download = `banner-${bannerId}.png`;
-          link.click();
-        })
-        .catch((err) => {
-          console.error("Failed to save image", err);
-        })
-        .finally(() => {
-          ref.classList.remove("hide-pencil");
-        });
+      // Hide pencil icon
+      const pencilIcons = ref.querySelectorAll('.pencil-icon');
+      pencilIcons.forEach(icon => (icon as HTMLElement).style.display = 'none');
+  
+      try {
+        // Generate the image and download
+        const dataUrl = await toPng(ref);
+        triggerDownload(dataUrl, `banner-${bannerId}.png`);
+      } catch (err) {
+        console.error("Failed to save image", err);
+      } finally {
+        // Restore the pencil icon
+        pencilIcons.forEach(icon => (icon as HTMLElement).style.display = 'block');
+  
+        // Clear the ref for the downloaded banner
+        bannerRefs.current[bannerId] = null;
+      }
+    } else {
+      console.error(`No ref found for banner ${bannerId}`);
     }
   };
+  
+  const triggerDownload = (dataUrl: string, filename: string) => {
+    const link = document.createElement("a");
+    link.href = dataUrl;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  
 
   const handleUpdateBanner = (updatedDetails: any) => {
     setBanners(banners.map(banner => 
@@ -63,7 +99,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col gap-6 items-center pt-4 pb-8">
+    <div className="bg-gray-100 flex flex-col gap-6 items-center pt-4 pb-8">
       <SelectorMenu position={position} setPosition={setPosition} />
       <div className="flex flex-wrap items-center justify-center gap-4 w-3/5">
         {banners.map((banner) => (

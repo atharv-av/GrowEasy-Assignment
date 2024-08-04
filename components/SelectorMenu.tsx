@@ -19,7 +19,7 @@ interface SelectorMenuProps {
 
 export function SelectorMenu({ position, setPosition }: SelectorMenuProps) {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex flex-col gap-4 justify-center items-center">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline">Choose Banner Resolution</Button>
@@ -38,6 +38,7 @@ export function SelectorMenu({ position, setPosition }: SelectorMenuProps) {
           </DropdownMenuRadioGroup>
         </DropdownMenuContent>
       </DropdownMenu>
+      <p className="font-bold text-black text-xl text-center">Click on edit icon to edit and download banners</p>
     </div>
   );
 }
