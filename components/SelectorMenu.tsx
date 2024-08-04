@@ -38,7 +38,9 @@ export function SelectorMenu({ position, setPosition }: SelectorMenuProps) {
           </DropdownMenuRadioGroup>
         </DropdownMenuContent>
       </DropdownMenu>
-      <p className="font-bold text-black text-xl text-center">Click on edit icon to edit and download banners</p>
+      <p className="font-bold text-black text-xl text-center">
+        Click on edit icon to edit and download banners
+      </p>
     </div>
   );
 }

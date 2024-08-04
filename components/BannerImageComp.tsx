@@ -14,7 +14,7 @@ interface BannerProps {
   position: string;
   onEditClick: () => void;
   onDownloadClick: () => void;
-  bannerRef: (el: HTMLDivElement | null) => void; // Update to RefCallback
+  bannerRef: (el: HTMLDivElement | null) => void;
 }
 
 const BannerImageComp: React.FC<BannerProps> = ({
@@ -27,7 +27,7 @@ const BannerImageComp: React.FC<BannerProps> = ({
   position,
   onEditClick,
   onDownloadClick,
-  bannerRef
+  bannerRef,
 }) => {
   let width, height, gap;
   if (position === "square") {
@@ -56,10 +56,14 @@ const BannerImageComp: React.FC<BannerProps> = ({
         }}
         className={`text-white flex flex-row ${width} ${height} pl-4 py-4 cursor-default`}
       >
-        <div className={`flex flex-col items-start justify-evenly w-full ${gap}`}>
+        <div
+          className={`flex flex-col items-start justify-evenly w-full ${gap}`}
+        >
           <div className="flex flex-col gap-2 items-start justify-start">
             <p className="text-white font-bold text-2xl">{title}</p>
-            <p className="text-white text-base w-full overflow-hidden text-ellipsis">{description}</p>
+            <p className="text-white text-base w-full overflow-hidden text-ellipsis">
+              {description}
+            </p>
           </div>
           <p className="text-black text-base bg-white rounded-md shadow-2xl shadow-black py-1 px-4">
             {cta}
@@ -67,7 +71,11 @@ const BannerImageComp: React.FC<BannerProps> = ({
         </div>
         <div className="flex flex-col justify-between items-end gap-5 pr-2">
           <div>
-            <Pencil size={25} className="text-white pencil-icon cursor-pointer" onClick={onEditClick} />
+            <Pencil
+              size={25}
+              className="text-white pencil-icon cursor-pointer"
+              onClick={onEditClick}
+            />
           </div>
           <Image
             src={image}

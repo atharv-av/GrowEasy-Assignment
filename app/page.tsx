@@ -23,38 +23,17 @@ export default function Home() {
     imgClip: "",
   });
 
-  // Create a ref map to track banner refs
   const bannerRefs = useRef<Record<number, HTMLDivElement | null>>([]);
 
-  // const downloadImage = (bannerId: number) => {
-  //   const ref = bannerRefs.current[bannerId];
-  //   if (ref) {
-  //     ref.classList.add("hide-pencil");
-
-  //     toPng(ref)
-  //       .then((dataUrl) => {
-  //         const link = document.createElement("a");
-  //         link.href = dataUrl;
-  //         link.download = `banner-${bannerId}.png`;
-  //         link.click();
-  //       })
-  //       .catch((err) => {
-  //         console.error("Failed to save image", err);
-  //       })
-  //       .finally(() => {
-  //         ref.classList.remove("hide-pencil");
-  //       });
-  //   }
-  // };
-  
   const downloadImage = async (bannerId: number) => {
     const ref = bannerRefs.current[bannerId];
-    
+
     if (ref) {
-      // Hide pencil icon
-      const pencilIcons = ref.querySelectorAll('.pencil-icon');
-      pencilIcons.forEach(icon => (icon as HTMLElement).style.display = 'none');
-  
+      const pencilIcons = ref.querySelectorAll(".pencil-icon");
+      pencilIcons.forEach(
+        (icon) => ((icon as HTMLElement).style.display = "none")
+      );
+
       try {
         // Generate the image and download
         const dataUrl = await toPng(ref);
@@ -62,17 +41,16 @@ export default function Home() {
       } catch (err) {
         console.error("Failed to save image", err);
       } finally {
-        // Restore the pencil icon
-        pencilIcons.forEach(icon => (icon as HTMLElement).style.display = 'block');
-  
-        // Clear the ref for the downloaded banner
-        bannerRefs.current[bannerId] = null;
+        pencilIcons.forEach(
+          (icon) => ((icon as HTMLElement).style.display = "block")
+        );
+        window.location.reload();
       }
     } else {
       console.error(`No ref found for banner ${bannerId}`);
     }
   };
-  
+
   const triggerDownload = (dataUrl: string, filename: string) => {
     const link = document.createElement("a");
     link.href = dataUrl;
@@ -81,12 +59,15 @@ export default function Home() {
     link.click();
     document.body.removeChild(link);
   };
-  
 
   const handleUpdateBanner = (updatedDetails: any) => {
-    setBanners(banners.map(banner => 
-      banner.id === currentBannerId ? { ...banner, ...updatedDetails } : banner
-    ));
+    setBanners(
+      banners.map((banner) =>
+        banner.id === currentBannerId
+          ? { ...banner, ...updatedDetails }
+          : banner
+      )
+    );
   };
 
   const openEditSheet = (bannerId: number) => {
